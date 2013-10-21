@@ -47,9 +47,7 @@ class ConfigServiceProvider implements ServiceProviderInterface
 				throw new \UnexpectedValueException('Configuration file could not be parsed.', 500);
 			}
 
-			$config = new Registry(json_decode(file_get_contents(APPLICATION_CONFIG)));
-
-			return $config;
+			return new Registry($json);
 		}, true);
 	}
 }
